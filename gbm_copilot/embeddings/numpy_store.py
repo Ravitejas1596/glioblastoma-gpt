@@ -32,7 +32,9 @@ def load_index() -> tuple[np.ndarray, list[dict]]:
             with open(_METADATA_FILE, "rb") as f:
                 _metadata_list = pickle.load(f)
         else:
-            _embeddings_matrix = np.zeros((0, 1024), dtype=np.float32)
+            from gbm_copilot.embeddings.embedder import get_embedding_dim
+            dim = get_embedding_dim()
+            _embeddings_matrix = np.zeros((0, dim), dtype=np.float32)
             _metadata_list = []
     return _embeddings_matrix, _metadata_list
 
