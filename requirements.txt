@@ -1,0 +1,55 @@
+# ─── Core LLM / Agent Framework ───────────────────────────────────────────────
+openai>=1.30.0
+groq>=0.9.0                 # Free LLM provider (llama-3.3-70b-versatile)
+langchain>=0.2.0
+langchain-openai>=0.1.8
+langchain-community>=0.2.0
+langchain-core>=0.2.0
+langgraph>=0.1.0
+langsmith>=0.1.77
+
+# ─── Embeddings ────────────────────────────────────────────────────────────────
+fastembed>=0.3.1            # BGE-M3 embeddings (medical-domain)
+
+# ─── Vector Store ──────────────────────────────────────────────────────────────
+pinecone-client>=3.2.2      # Version A (optional – set RETRIEVAL_MODE=pinecone)
+
+# ─── Retrieval ─────────────────────────────────────────────────────────────────
+rank-bm25>=0.2.2            # BM25 keyword retrieval
+
+# ─── Medical NLP ───────────────────────────────────────────────────────────────
+scispacy>=0.5.4
+# en_core_sci_lg model: pip install https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.4/en_core_sci_lg-0.5.4.tar.gz
+
+# ─── Data Ingestion ─────────────────────────────────────────────────────────────
+httpx>=0.27.0
+beautifulsoup4>=4.12.3
+lxml>=5.2.1
+pypdf>=4.2.0
+tiktoken>=0.7.0             # Token counting for chunking
+
+# ─── MCP ───────────────────────────────────────────────────────────────────────
+fastmcp>=0.4.0
+
+# ─── API ───────────────────────────────────────────────────────────────────────
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+pydantic>=2.7.1
+sse-starlette>=1.8.2        # Server-sent events for streaming
+
+# ─── UI ────────────────────────────────────────────────────────────────────────
+streamlit>=1.35.0
+
+# ─── Evaluation ────────────────────────────────────────────────────────────────
+ragas>=0.1.9
+datasets>=2.19.1            # Required by ragas
+
+# ─── Numerics ──────────────────────────────────────────────────────────────────
+numpy>=1.26.4
+scikit-learn>=1.4.2
+
+# ─── Utilities ─────────────────────────────────────────────────────────────────
+python-dotenv>=1.0.1
+tenacity>=8.3.0             # Retry logic for API calls
+rich>=13.7.1                # Pretty CLI output
+tqdm>=4.66.4                # Progress bars

@@ -1,0 +1,1035 @@
+{
+    "_meta": {
+        "version": "1.0.0",
+        "description": "GBM-specific medical ontology: acronyms, synonyms, gene aliases, drug names for neuro-oncology RAG query expansion",
+        "entries": 210,
+        "categories": [
+            "acronyms",
+            "synonyms",
+            "genes",
+            "drugs"
+        ]
+    },
+    "acronyms": {
+        "GBM": [
+            "glioblastoma",
+            "glioblastoma multiforme",
+            "grade IV glioma",
+            "grade 4 glioma",
+            "WHO grade IV astrocytoma"
+        ],
+        "IDH": [
+            "isocitrate dehydrogenase",
+            "IDH mutation",
+            "IDH status"
+        ],
+        "IDH1": [
+            "isocitrate dehydrogenase 1",
+            "IDH1 mutation",
+            "IDH1 R132H"
+        ],
+        "IDH2": [
+            "isocitrate dehydrogenase 2",
+            "IDH2 mutation",
+            "IDH2 R172K"
+        ],
+        "MGMT": [
+            "O6-methylguanine-DNA methyltransferase",
+            "MGMT methylation",
+            "MGMT promoter methylation",
+            "MGMT silencing"
+        ],
+        "TMZ": [
+            "temozolomide",
+            "Temodar",
+            "temozolomide chemotherapy"
+        ],
+        "BEV": [
+            "bevacizumab",
+            "Avastin",
+            "anti-VEGF therapy"
+        ],
+        "RT": [
+            "radiation therapy",
+            "radiotherapy",
+            "external beam radiation",
+            "EBRT"
+        ],
+        "EBRT": [
+            "external beam radiation therapy",
+            "radiation therapy",
+            "radiotherapy"
+        ],
+        "SRS": [
+            "stereotactic radiosurgery",
+            "Gamma Knife",
+            "CyberKnife",
+            "single-fraction radiosurgery"
+        ],
+        "FSRT": [
+            "fractionated stereotactic radiotherapy",
+            "fractionated SRS"
+        ],
+        "WBRT": [
+            "whole brain radiation therapy",
+            "whole brain radiotherapy"
+        ],
+        "MRI": [
+            "magnetic resonance imaging",
+            "brain MRI",
+            "neuroimaging"
+        ],
+        "fMRI": [
+            "functional MRI",
+            "functional magnetic resonance imaging"
+        ],
+        "MRS": [
+            "magnetic resonance spectroscopy",
+            "MR spectroscopy"
+        ],
+        "PET": [
+            "positron emission tomography",
+            "PET scan",
+            "PET imaging"
+        ],
+        "FLAIR": [
+            "fluid-attenuated inversion recovery",
+            "FLAIR MRI sequence"
+        ],
+        "KPS": [
+            "Karnofsky Performance Status",
+            "Karnofsky score",
+            "performance status"
+        ],
+        "ECOG": [
+            "Eastern Cooperative Oncology Group performance status",
+            "ECOG score"
+        ],
+        "OS": [
+            "overall survival",
+            "median overall survival"
+        ],
+        "PFS": [
+            "progression-free survival",
+            "median progression-free survival"
+        ],
+        "TTF": [
+            "tumor treating fields",
+            "Optune",
+            "alternating electric field therapy"
+        ],
+        "TTFields": [
+            "tumor treating fields",
+            "Optune",
+            "alternating electric field therapy"
+        ],
+        "EGFRvIII": [
+            "EGFR variant III",
+            "EGFR deletion variant III",
+            "epidermal growth factor receptor variant III"
+        ],
+        "EGFR": [
+            "epidermal growth factor receptor",
+            "EGFR amplification",
+            "EGFR overexpression"
+        ],
+        "TERT": [
+            "telomerase reverse transcriptase",
+            "TERT promoter mutation",
+            "TERT mutation"
+        ],
+        "PTEN": [
+            "phosphatase and tensin homolog",
+            "PTEN loss",
+            "PTEN deletion"
+        ],
+        "TP53": [
+            "tumor protein p53",
+            "p53 mutation",
+            "TP53 mutation"
+        ],
+        "CDKN2A": [
+            "cyclin-dependent kinase inhibitor 2A",
+            "p16",
+            "p14ARF"
+        ],
+        "CDK4": [
+            "cyclin-dependent kinase 4",
+            "CDK4 amplification"
+        ],
+        "CDK6": [
+            "cyclin-dependent kinase 6",
+            "CDK6 amplification"
+        ],
+        "MDM2": [
+            "mouse double minute 2",
+            "MDM2 amplification",
+            "MDM2 overexpression"
+        ],
+        "VEGF": [
+            "vascular endothelial growth factor",
+            "VEGF pathway",
+            "angiogenesis factor"
+        ],
+        "PDGFR": [
+            "platelet-derived growth factor receptor",
+            "PDGFR amplification"
+        ],
+        "mTOR": [
+            "mechanistic target of rapamycin",
+            "mTOR pathway",
+            "mTOR inhibitor"
+        ],
+        "PI3K": [
+            "phosphoinositide 3-kinase",
+            "PI3K pathway",
+            "PI3K mutation"
+        ],
+        "AKT": [
+            "protein kinase B",
+            "AKT pathway",
+            "AKT activation"
+        ],
+        "RB1": [
+            "retinoblastoma protein 1",
+            "RB1 deletion",
+            "retinoblastoma gene"
+        ],
+        "NF1": [
+            "neurofibromin 1",
+            "NF1 mutation",
+            "neurofibromatosis type 1"
+        ],
+        "ATRX": [
+            "alpha thalassemia X-linked intellectual disability protein",
+            "ATRX mutation",
+            "ATRX loss"
+        ],
+        "H3K27M": [
+            "histone H3 K27M mutation",
+            "H3 K27-altered",
+            "diffuse midline glioma marker"
+        ],
+        "CCND2": [
+            "cyclin D2",
+            "CCND2 amplification"
+        ],
+        "PDMA": [
+            "platelet-derived membrane antigen"
+        ],
+        "CART": [
+            "chimeric antigen receptor T cell",
+            "CAR-T cell therapy",
+            "adoptive cell therapy"
+        ],
+        "CAR-T": [
+            "chimeric antigen receptor T cell",
+            "CAR-T cell therapy",
+            "adoptive immunotherapy"
+        ],
+        "PD-1": [
+            "programmed cell death protein 1",
+            "PD-1 checkpoint",
+            "PD-1 inhibitor"
+        ],
+        "PD-L1": [
+            "programmed death-ligand 1",
+            "PD-L1 expression",
+            "PD-L1 checkpoint"
+        ],
+        "CTLA-4": [
+            "cytotoxic T-lymphocyte-associated protein 4",
+            "CTLA-4 checkpoint",
+            "ipilimumab target"
+        ],
+        "TME": [
+            "tumor microenvironment",
+            "glioma microenvironment"
+        ],
+        "BBB": [
+            "blood-brain barrier",
+            "blood brain barrier",
+            "CNS penetration"
+        ],
+        "CNS": [
+            "central nervous system",
+            "brain and spinal cord"
+        ],
+        "GTV": [
+            "gross tumor volume",
+            "tumor volume"
+        ],
+        "CTV": [
+            "clinical target volume",
+            "radiation target volume"
+        ],
+        "PTV": [
+            "planning target volume",
+            "radiation planning volume"
+        ],
+        "CCNU": [
+            "lomustine",
+            "CeeNU"
+        ],
+        "BCNU": [
+            "carmustine",
+            "BiCNU"
+        ],
+        "PCB": [
+            "procarbazine"
+        ],
+        "PCV": [
+            "procarbazine lomustine vincristine",
+            "PCV chemotherapy regimen"
+        ],
+        "CCRT": [
+            "concurrent chemoradiotherapy",
+            "concurrent chemoradiation",
+            "concomitant chemoradiation"
+        ],
+        "5-ALA": [
+            "5-aminolevulinic acid",
+            "Gliolan",
+            "fluorescence-guided surgery"
+        ],
+        "GTR": [
+            "gross total resection",
+            "complete surgical resection"
+        ],
+        "STR": [
+            "subtotal resection",
+            "partial resection"
+        ],
+        "EOR": [
+            "extent of resection",
+            "surgical resection extent"
+        ],
+        "NGS": [
+            "next-generation sequencing",
+            "tumor sequencing",
+            "molecular profiling"
+        ],
+        "FISH": [
+            "fluorescence in situ hybridization",
+            "cytogenetic analysis"
+        ],
+        "IHC": [
+            "immunohistochemistry",
+            "immunohistochemical staining"
+        ],
+        "PCR": [
+            "polymerase chain reaction",
+            "molecular testing"
+        ],
+        "RNA-seq": [
+            "RNA sequencing",
+            "transcriptome sequencing",
+            "gene expression profiling"
+        ],
+        "TCGA": [
+            "The Cancer Genome Atlas",
+            "TCGA GBM dataset"
+        ],
+        "NCCN": [
+            "National Comprehensive Cancer Network",
+            "NCCN guidelines"
+        ],
+        "ASCO": [
+            "American Society of Clinical Oncology",
+            "ASCO guidelines"
+        ],
+        "SNO": [
+            "Society for Neuro-Oncology",
+            "SNO guidelines"
+        ],
+        "RANO": [
+            "Response Assessment in Neuro-Oncology",
+            "RANO criteria",
+            "treatment response criteria"
+        ],
+        "MGMT unmethylated": [
+            "MGMT promoter unmethylated",
+            "MGMT not methylated",
+            "no MGMT silencing"
+        ],
+        "MGMT methylated": [
+            "MGMT promoter methylated",
+            "MGMT silenced",
+            "MGMT epigenetic silencing"
+        ],
+        "IDH wild-type": [
+            "IDH wildtype",
+            "IDH-wildtype GBM",
+            "IDH wt",
+            "no IDH mutation"
+        ],
+        "IDH mutant": [
+            "IDH-mutant",
+            "IDH mutation positive",
+            "IDH1 or IDH2 mutation"
+        ],
+        "HIF": [
+            "hypoxia-inducible factor",
+            "HIF-1alpha",
+            "hypoxia pathway"
+        ],
+        "VEGFR": [
+            "vascular endothelial growth factor receptor",
+            "VEGFR inhibitor"
+        ],
+        "ANG": [
+            "angiopoietin",
+            "angiogenesis"
+        ],
+        "GBM-SC": [
+            "glioblastoma stem cells",
+            "glioma stem cells",
+            "cancer stem cells"
+        ],
+        "GSC": [
+            "glioma stem cells",
+            "glioblastoma stem cells",
+            "tumor-initiating cells"
+        ],
+        "TMB": [
+            "tumor mutational burden",
+            "mutation burden"
+        ],
+        "MSI": [
+            "microsatellite instability"
+        ],
+        "MMR": [
+            "mismatch repair",
+            "DNA mismatch repair deficiency"
+        ],
+        "DSB": [
+            "double-strand break",
+            "DNA double-strand break repair"
+        ],
+        "HR": [
+            "homologous recombination",
+            "DNA repair pathway"
+        ],
+        "NHEJ": [
+            "non-homologous end joining",
+            "DNA repair"
+        ],
+        "RANO-BM": [
+            "RANO brain metastasis criteria",
+            "RANO-BM criteria"
+        ],
+        "iRANO": [
+            "immunotherapy response assessment in neuro-oncology",
+            "immunotherapy RANO criteria"
+        ]
+    },
+    "synonyms": {
+        "stupp protocol": [
+            "TMZ plus radiation",
+            "temozolomide chemoradiotherapy",
+            "concurrent chemoradiation with temozolomide",
+            "standard of care GBM treatment",
+            "radiochemotherapy temozolomide",
+            "60Gy radiation with TMZ",
+            "Stupp regimen",
+            "Stupp 2005 protocol"
+        ],
+        "standard of care": [
+            "Stupp protocol",
+            "surgical resection followed by radiation and temozolomide",
+            "maximal safe resection plus radiochemotherapy",
+            "current standard treatment GBM"
+        ],
+        "recurrent GBM": [
+            "recurrent glioblastoma",
+            "relapsed glioblastoma",
+            "progressive GBM",
+            "second-line GBM treatment",
+            "GBM at recurrence",
+            "recurrent high-grade glioma"
+        ],
+        "first-line treatment": [
+            "newly diagnosed GBM treatment",
+            "initial treatment",
+            "primary therapy",
+            "frontline therapy",
+            "de novo GBM treatment"
+        ],
+        "tumor treating fields": [
+            "Optune device",
+            "NovoTTF",
+            "TTFields",
+            "alternating electric fields",
+            "electric field treatment glioblastoma"
+        ],
+        "blood-brain barrier": [
+            "BBB",
+            "CNS drug penetration",
+            "brain drug delivery",
+            "central nervous system drug access"
+        ],
+        "immunotherapy": [
+            "immune checkpoint inhibitor",
+            "checkpoint blockade",
+            "PD-1 inhibitor",
+            "pembrolizumab",
+            "nivolumab",
+            "anti-PD-1",
+            "immune oncology",
+            "cancer immunotherapy"
+        ],
+        "bevacizumab": [
+            "Avastin",
+            "anti-VEGF",
+            "anti-angiogenic therapy",
+            "VEGF antibody",
+            "vascular endothelial growth factor inhibitor"
+        ],
+        "temozolomide": [
+            "TMZ",
+            "Temodar",
+            "temozolomide chemotherapy",
+            "oral alkylating agent",
+            "alkylating chemotherapy GBM"
+        ],
+        "lomustine": [
+            "CCNU",
+            "CeeNU",
+            "nitrosourea chemotherapy",
+            "oral lomustine"
+        ],
+        "carmustine": [
+            "BCNU",
+            "BiCNU",
+            "Gliadel wafer",
+            "nitrosourea",
+            "carmustine wafer implant"
+        ],
+        "prognosis": [
+            "survival outcomes",
+            "median overall survival",
+            "life expectancy glioblastoma",
+            "GBM outlook",
+            "how long with GBM",
+            "survival statistics"
+        ],
+        "brain biopsy": [
+            "stereotactic biopsy",
+            "needle biopsy brain",
+            "surgical biopsy",
+            "tissue diagnosis"
+        ],
+        "awake craniotomy": [
+            "awake surgery",
+            "craniotomy with brain mapping",
+            "awake brain surgery",
+            "cortical mapping surgery"
+        ],
+        "fluorescence-guided surgery": [
+            "5-ALA surgery",
+            "5-aminolevulinic acid guided resection",
+            "Gliolan fluorescence",
+            "pink tumor resection",
+            "fluorescent guided tumor removal"
+        ],
+        "intraoperative MRI": [
+            "iMRI",
+            "real-time MRI surgery",
+            "intraoperative imaging",
+            "MRI-guided surgery"
+        ],
+        "pseudoprogression": [
+            "treatment-related changes",
+            "radiation necrosis mimicking progression",
+            "post-treatment imaging changes",
+            "false progression on MRI"
+        ],
+        "radiation necrosis": [
+            "late radiation toxicity",
+            "post-radiation necrosis",
+            "delayed radiation injury",
+            "radiation-induced necrosis brain"
+        ],
+        "edema": [
+            "brain swelling",
+            "cerebral edema",
+            "peritumoral edema",
+            "vasogenic edema",
+            "dexamethasone treatment"
+        ],
+        "dexamethasone": [
+            "steroids for brain tumor",
+            "glucocorticoid treatment",
+            "Decadron",
+            "steroid brain swelling",
+            "corticosteroid edema"
+        ],
+        "clinical trial": [
+            "research study",
+            "experimental treatment",
+            "investigational therapy",
+            "phase I trial",
+            "phase II trial",
+            "phase III trial",
+            "clinical study",
+            "experimental drug"
+        ],
+        "MGMT methylation": [
+            "MGMT promoter methylation",
+            "MGMT silenced",
+            "epigenetic MGMT regulation",
+            "MGMT methylated tumor",
+            "predictive biomarker temozolomide"
+        ],
+        "IDH wild-type GBM": [
+            "IDH-wildtype glioblastoma",
+            "glioblastoma NOS",
+            "primary glioblastoma",
+            "most common GBM subtype",
+            "de novo glioblastoma"
+        ],
+        "IDH mutant glioma": [
+            "secondary GBM",
+            "lower-grade glioma progression",
+            "IDH-mutant astrocytoma",
+            "IDH-mutant oligodendroglioma"
+        ],
+        "seizures": [
+            "epilepsy brain tumor",
+            "tumor-related seizures",
+            "anticonvulsant therapy",
+            "levetiracetam",
+            "valproic acid seizure"
+        ],
+        "quality of life": [
+            "QOL",
+            "patient wellbeing",
+            "functional outcomes",
+            "neurocognitive function",
+            "activities of daily living brain tumor"
+        ],
+        "palliative care": [
+            "supportive care",
+            "hospice",
+            "comfort care",
+            "symptom management",
+            "end of life care GBM"
+        ],
+        "neurological deficits": [
+            "weakness",
+            "cognitive impairment",
+            "memory loss brain tumor",
+            "speech difficulty",
+            "aphasia",
+            "hemiparesis"
+        ],
+        "tumor recurrence": [
+            "GBM recurrence",
+            "tumor comes back",
+            "cancer regrowth",
+            "progressive disease",
+            "disease progression"
+        ]
+    },
+    "genes": {
+        "MGMT": {
+            "full_name": "O6-methylguanine-DNA methyltransferase",
+            "aliases": [
+                "MGMT gene",
+                "DNA repair gene MGMT"
+            ],
+            "clinical_relevance": "Promoter methylation predicts improved response to temozolomide chemotherapy",
+            "variants": [
+                "MGMT promoter methylated",
+                "MGMT promoter unmethylated"
+            ]
+        },
+        "IDH1": {
+            "full_name": "Isocitrate dehydrogenase 1",
+            "aliases": [
+                "IDH1 gene",
+                "IDH1 R132H",
+                "IDH1 mutation"
+            ],
+            "clinical_relevance": "IDH mutation indicates better prognosis; IDH wild-type indicates primary GBM",
+            "variants": [
+                "IDH1 R132H",
+                "IDH1 R132C",
+                "IDH1 wild-type"
+            ]
+        },
+        "IDH2": {
+            "full_name": "Isocitrate dehydrogenase 2",
+            "aliases": [
+                "IDH2 gene",
+                "IDH2 R172K"
+            ],
+            "clinical_relevance": "Less common IDH mutation; found in some gliomas",
+            "variants": [
+                "IDH2 R172K",
+                "IDH2 R172M"
+            ]
+        },
+        "EGFR": {
+            "full_name": "Epidermal growth factor receptor",
+            "aliases": [
+                "EGFR gene",
+                "EGFR amplification",
+                "HER1"
+            ],
+            "clinical_relevance": "Amplified in ~40% of GBMs; EGFRvIII is GBM-specific variant",
+            "variants": [
+                "EGFR amplification",
+                "EGFRvIII",
+                "EGFR overexpression"
+            ]
+        },
+        "PTEN": {
+            "full_name": "Phosphatase and tensin homolog",
+            "aliases": [
+                "PTEN tumor suppressor",
+                "PTEN loss"
+            ],
+            "clinical_relevance": "Tumor suppressor; loss activates PI3K/AKT pathway promoting GBM growth",
+            "variants": [
+                "PTEN deletion",
+                "PTEN mutation",
+                "PTEN loss of function"
+            ]
+        },
+        "TP53": {
+            "full_name": "Tumor protein p53",
+            "aliases": [
+                "p53",
+                "TP53 mutation",
+                "p53 tumor suppressor"
+            ],
+            "clinical_relevance": "Commonly mutated in IDH-mutant gliomas",
+            "variants": [
+                "TP53 R248W",
+                "TP53 R273H",
+                "TP53 mutation"
+            ]
+        },
+        "TERT": {
+            "full_name": "Telomerase reverse transcriptase",
+            "aliases": [
+                "TERT promoter",
+                "TERT mutation"
+            ],
+            "clinical_relevance": "TERT promoter mutations found in >70% IDH wild-type GBMs; associated with poor prognosis",
+            "variants": [
+                "TERT C228T",
+                "TERT C250T"
+            ]
+        },
+        "ATRX": {
+            "full_name": "Alpha thalassemia X-linked intellectual disability protein",
+            "aliases": [
+                "ATRX gene",
+                "ATRX loss"
+            ],
+            "clinical_relevance": "Loss associated with IDH-mutant gliomas; alternative lengthening of telomeres",
+            "variants": [
+                "ATRX mutation",
+                "ATRX loss of expression"
+            ]
+        },
+        "CDKN2A": {
+            "full_name": "Cyclin-dependent kinase inhibitor 2A",
+            "aliases": [
+                "p16",
+                "p14ARF",
+                "CDKN2A deletion"
+            ],
+            "clinical_relevance": "Homozygous deletion is a grading criterion in WHO 2021 classification",
+            "variants": [
+                "CDKN2A homozygous deletion",
+                "p16 loss"
+            ]
+        },
+        "NF1": {
+            "full_name": "Neurofibromin 1",
+            "aliases": [
+                "NF1 gene",
+                "neurofibromatosis 1"
+            ],
+            "clinical_relevance": "Mutated in mesenchymal GBM subtype; RAS pathway activation",
+            "variants": [
+                "NF1 mutation",
+                "NF1 loss of function"
+            ]
+        },
+        "RB1": {
+            "full_name": "Retinoblastoma protein 1",
+            "aliases": [
+                "Rb",
+                "RB1 deletion"
+            ],
+            "clinical_relevance": "Cell cycle regulator; loss promotes tumor proliferation",
+            "variants": [
+                "RB1 deletion",
+                "RB1 mutation"
+            ]
+        },
+        "MDM2": {
+            "full_name": "Mouse double minute 2 homolog",
+            "aliases": [
+                "MDM2 amplification",
+                "p53 regulator"
+            ],
+            "clinical_relevance": "MDM2 amplification suppresses p53; amplified in subset of GBMs",
+            "variants": [
+                "MDM2 amplification",
+                "MDM2 overexpression"
+            ]
+        },
+        "VEGF": {
+            "full_name": "Vascular endothelial growth factor",
+            "aliases": [
+                "VEGF-A",
+                "angiogenesis factor"
+            ],
+            "clinical_relevance": "Key driver of GBM angiogenesis; target of bevacizumab",
+            "variants": [
+                "VEGF overexpression",
+                "VEGF pathway activation"
+            ]
+        },
+        "H3F3A": {
+            "full_name": "H3.3 histone A",
+            "aliases": [
+                "H3K27M",
+                "histone H3 mutation"
+            ],
+            "clinical_relevance": "K27M mutation defines diffuse midline glioma; not typical GBM",
+            "variants": [
+                "H3K27M mutation",
+                "H3 G34R mutation"
+            ]
+        },
+        "PIK3CA": {
+            "full_name": "Phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit alpha",
+            "aliases": [
+                "PI3K catalytic subunit",
+                "PIK3CA mutation"
+            ],
+            "clinical_relevance": "PI3K pathway activation; potential therapeutic target",
+            "variants": [
+                "PIK3CA E545K",
+                "PIK3CA H1047R"
+            ]
+        }
+    },
+    "drugs": {
+        "temozolomide": {
+            "brand_names": [
+                "Temodar",
+                "Temodal"
+            ],
+            "aliases": [
+                "TMZ",
+                "oral alkylating agent",
+                "temozolomide chemotherapy"
+            ],
+            "class": "alkylating agent",
+            "mechanism": "DNA alkylation at O6-guanine position; efficacy enhanced by MGMT methylation",
+            "route": "oral",
+            "indication": "Newly diagnosed and recurrent GBM; standard component of Stupp protocol"
+        },
+        "bevacizumab": {
+            "brand_names": [
+                "Avastin"
+            ],
+            "aliases": [
+                "BEV",
+                "anti-VEGF",
+                "anti-angiogenic therapy",
+                "VEGF antibody"
+            ],
+            "class": "monoclonal antibody / anti-angiogenic",
+            "mechanism": "Binds VEGF-A, inhibiting tumor angiogenesis",
+            "route": "intravenous",
+            "indication": "Recurrent GBM (FDA approved 2009); used off-label in newly diagnosed"
+        },
+        "lomustine": {
+            "brand_names": [
+                "CeeNU",
+                "Gleostine"
+            ],
+            "aliases": [
+                "CCNU",
+                "nitrosourea"
+            ],
+            "class": "nitrosourea alkylating agent",
+            "mechanism": "DNA cross-linking and carbamylation",
+            "route": "oral",
+            "indication": "Recurrent GBM; component of PCV regimen"
+        },
+        "carmustine": {
+            "brand_names": [
+                "BiCNU",
+                "Gliadel wafer"
+            ],
+            "aliases": [
+                "BCNU",
+                "carmustine wafer"
+            ],
+            "class": "nitrosourea alkylating agent",
+            "mechanism": "DNA cross-linking; Gliadel delivers local chemotherapy via biodegradable wafer",
+            "route": "intravenous or intracranial wafer",
+            "indication": "Newly diagnosed and recurrent GBM; Gliadel wafer placed at time of resection"
+        },
+        "tumor treating fields": {
+            "brand_names": [
+                "Optune",
+                "NovoTTF-200A"
+            ],
+            "aliases": [
+                "TTFields",
+                "TTF",
+                "alternating electric field therapy"
+            ],
+            "class": "physical therapy / electric field device",
+            "mechanism": "Alternating electric fields disrupt mitotic spindle formation in dividing cells",
+            "route": "wearable transducer arrays on scalp",
+            "indication": "Newly diagnosed GBM (with TMZ) and recurrent GBM (FDA approved)"
+        },
+        "dexamethasone": {
+            "brand_names": [
+                "Decadron"
+            ],
+            "aliases": [
+                "steroids brain tumor",
+                "corticosteroids GBM",
+                "glucocorticoid"
+            ],
+            "class": "corticosteroid",
+            "mechanism": "Reduces vasogenic edema by stabilizing blood-brain barrier",
+            "route": "oral or intravenous",
+            "indication": "Cerebral edema secondary to GBM; peritumoral edema"
+        },
+        "levetiracetam": {
+            "brand_names": [
+                "Keppra"
+            ],
+            "aliases": [
+                "antiepileptic",
+                "anticonvulsant GBM",
+                "seizure medication"
+            ],
+            "class": "antiepileptic",
+            "mechanism": "SV2A ligand; modulates synaptic vesicle release",
+            "route": "oral or intravenous",
+            "indication": "Seizure prophylaxis and treatment in GBM patients"
+        },
+        "procarbazine": {
+            "brand_names": [
+                "Matulane"
+            ],
+            "aliases": [
+                "PCB",
+                "PCV component"
+            ],
+            "class": "alkylating agent",
+            "mechanism": "DNA methylation and free radical generation",
+            "route": "oral",
+            "indication": "Component of PCV regimen for anaplastic gliomas and recurrent GBM"
+        },
+        "vincristine": {
+            "brand_names": [
+                "Oncovin"
+            ],
+            "aliases": [
+                "VCR",
+                "vinca alkaloid"
+            ],
+            "class": "vinca alkaloid / antimitotic",
+            "mechanism": "Inhibits tubulin polymerization; disrupts mitotic spindle",
+            "route": "intravenous",
+            "indication": "Component of PCV regimen"
+        },
+        "pembrolizumab": {
+            "brand_names": [
+                "Keytruda"
+            ],
+            "aliases": [
+                "anti-PD-1",
+                "PD-1 inhibitor",
+                "checkpoint inhibitor"
+            ],
+            "class": "immune checkpoint inhibitor",
+            "mechanism": "Blocks PD-1 receptor, restoring T cell anti-tumor activity",
+            "route": "intravenous",
+            "indication": "Investigational in GBM; multiple clinical trials ongoing"
+        },
+        "nivolumab": {
+            "brand_names": [
+                "Opdivo"
+            ],
+            "aliases": [
+                "anti-PD-1",
+                "PD-1 antibody",
+                "checkpoint inhibitor"
+            ],
+            "class": "immune checkpoint inhibitor",
+            "mechanism": "Blocks PD-1 receptor",
+            "route": "intravenous",
+            "indication": "Investigational in GBM (CheckMate trials); not yet standard of care"
+        },
+        "avastin": {
+            "brand_names": [
+                "Avastin"
+            ],
+            "aliases": [
+                "bevacizumab",
+                "anti-VEGF"
+            ],
+            "class": "monoclonal antibody",
+            "mechanism": "VEGF-A inhibitor; anti-angiogenic",
+            "route": "intravenous",
+            "indication": "Recurrent GBM"
+        },
+        "regorafenib": {
+            "brand_names": [
+                "Stivarga"
+            ],
+            "aliases": [
+                "multi-kinase inhibitor",
+                "VEGFR inhibitor"
+            ],
+            "class": "multi-kinase inhibitor",
+            "mechanism": "Inhibits VEGFR, PDGFR, RAF kinases",
+            "route": "oral",
+            "indication": "Recurrent GBM (REGOMA trial data)"
+        },
+        "5-aminolevulinic acid": {
+            "brand_names": [
+                "Gliolan",
+                "Gleolan"
+            ],
+            "aliases": [
+                "5-ALA",
+                "photosensitizer",
+                "fluorescence agent"
+            ],
+            "class": "photosensitizing agent",
+            "mechanism": "Accumulates as protoporphyrin IX in tumor cells; fluoresces pink under blue light",
+            "route": "oral (taken before surgery)",
+            "indication": "Fluorescence-guided surgical resection of GBM"
+        },
+        "larotrectinib": {
+            "brand_names": [
+                "Vitrakvi"
+            ],
+            "aliases": [
+                "TRK inhibitor",
+                "NTRK inhibitor"
+            ],
+            "class": "TRK inhibitor",
+            "mechanism": "Inhibits NTRK1/2/3 fusion oncoproteins",
+            "route": "oral",
+            "indication": "NTRK fusion-positive solid tumors including rare GBM with NTRK fusion"
+        }
+    }
+}

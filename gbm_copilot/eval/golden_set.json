@@ -1,0 +1,492 @@
+[
+    {
+        "id": "q001",
+        "category": "treatment",
+        "question": "What is the Stupp protocol for glioblastoma?",
+        "expected_keywords": [
+            "temozolomide",
+            "radiation",
+            "60Gy",
+            "chemoradiotherapy",
+            "TMZ"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "patient"
+    },
+    {
+        "id": "q002",
+        "category": "treatment",
+        "question": "What does MGMT methylation mean for GBM treatment?",
+        "expected_keywords": [
+            "temozolomide",
+            "methylation",
+            "epigenetic",
+            "biomarker",
+            "predictive"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "caregiver"
+    },
+    {
+        "id": "q003",
+        "category": "treatment",
+        "question": "What is tumor treating fields (TTFields/Optune) for glioblastoma?",
+        "expected_keywords": [
+            "electric",
+            "alternating",
+            "mitosis",
+            "FDA approved",
+            "TTFields",
+            "Optune"
+        ],
+        "expected_sources": [
+            "pubmed",
+            "fda_label"
+        ],
+        "literacy_mode": "patient"
+    },
+    {
+        "id": "q004",
+        "category": "drug",
+        "question": "What are the side effects of temozolomide (TMZ)?",
+        "expected_keywords": [
+            "nausea",
+            "fatigue",
+            "myelosuppression",
+            "lymphopenia",
+            "thrombocytopenia"
+        ],
+        "expected_sources": [
+            "fda_label",
+            "pubmed"
+        ],
+        "literacy_mode": "patient"
+    },
+    {
+        "id": "q005",
+        "category": "drug",
+        "question": "How does bevacizumab (Avastin) work in GBM?",
+        "expected_keywords": [
+            "VEGF",
+            "angiogenesis",
+            "anti-angiogenic",
+            "blood vessels",
+            "bevacizumab"
+        ],
+        "expected_sources": [
+            "pubmed",
+            "fda_label"
+        ],
+        "literacy_mode": "caregiver"
+    },
+    {
+        "id": "q006",
+        "category": "treatment",
+        "question": "What is gross total resection and why does it matter for GBM prognosis?",
+        "expected_keywords": [
+            "resection",
+            "extent of resection",
+            "EOR",
+            "survival",
+            "GTR"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "clinician"
+    },
+    {
+        "id": "q007",
+        "category": "research",
+        "question": "What does IDH wild-type mean?",
+        "expected_keywords": [
+            "isocitrate dehydrogenase",
+            "mutation",
+            "primary glioblastoma",
+            "prognosis"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "patient"
+    },
+    {
+        "id": "q008",
+        "category": "research",
+        "question": "What is the difference between IDH mutant and IDH wild-type GBM?",
+        "expected_keywords": [
+            "IDH1",
+            "IDH2",
+            "prognosis",
+            "secondary",
+            "primary",
+            "WHO classification"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "caregiver"
+    },
+    {
+        "id": "q009",
+        "category": "research",
+        "question": "What are glioblastoma stem cells and why do they cause recurrence?",
+        "expected_keywords": [
+            "stem cells",
+            "GSC",
+            "temozolomide resistance",
+            "recurrence",
+            "quiescent"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "clinician"
+    },
+    {
+        "id": "q010",
+        "category": "research",
+        "question": "What is pseudoprogression in GBM MRI?",
+        "expected_keywords": [
+            "pseudoprogression",
+            "RANO",
+            "radiation",
+            "MRI",
+            "enhancement"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "caregiver"
+    },
+    {
+        "id": "q011",
+        "category": "drug",
+        "question": "What is lomustine (CCNU) used for in recurrent GBM?",
+        "expected_keywords": [
+            "lomustine",
+            "CCNU",
+            "nitrosourea",
+            "recurrent",
+            "alkylating"
+        ],
+        "expected_sources": [
+            "fda_label",
+            "pubmed"
+        ],
+        "literacy_mode": "patient"
+    },
+    {
+        "id": "q012",
+        "category": "treatment",
+        "question": "What is 5-ALA fluorescence-guided surgery for brain tumors?",
+        "expected_keywords": [
+            "aminolevulinic acid",
+            "fluorescence",
+            "Gliolan",
+            "resection",
+            "surgical"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "caregiver"
+    },
+    {
+        "id": "q013",
+        "category": "research",
+        "question": "What does TERT promoter mutation mean in GBM?",
+        "expected_keywords": [
+            "TERT",
+            "telomerase",
+            "promoter",
+            "IDH",
+            "wild-type",
+            "prognosis"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "clinician"
+    },
+    {
+        "id": "q014",
+        "category": "research",
+        "question": "What is the WHO 2021 classification of glioblastoma?",
+        "expected_keywords": [
+            "WHO 2021",
+            "IDH wild-type",
+            "TERT",
+            "EGFR",
+            "grade 4",
+            "classification"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "clinician"
+    },
+    {
+        "id": "q015",
+        "category": "treatment",
+        "question": "What is bevacizumab and when is it used for GBM?",
+        "expected_keywords": [
+            "bevacizumab",
+            "Avastin",
+            "recurrent",
+            "FDA approved",
+            "VEGF"
+        ],
+        "expected_sources": [
+            "pubmed",
+            "fda_label"
+        ],
+        "literacy_mode": "patient"
+    },
+    {
+        "id": "q016",
+        "category": "drug",
+        "question": "Why is dexamethasone given to GBM patients?",
+        "expected_keywords": [
+            "edema",
+            "swelling",
+            "corticosteroid",
+            "blood-brain barrier",
+            "vasogenic"
+        ],
+        "expected_sources": [
+            "pubmed",
+            "fda_label"
+        ],
+        "literacy_mode": "patient"
+    },
+    {
+        "id": "q017",
+        "category": "treatment",
+        "question": "What does KPS (Karnofsky Performance Status) measure and why does it matter for GBM?",
+        "expected_keywords": [
+            "Karnofsky",
+            "performance status",
+            "functional",
+            "eligibility",
+            "prognosis"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "caregiver"
+    },
+    {
+        "id": "q018",
+        "category": "research",
+        "question": "Can immunotherapy (checkpoint inhibitors) treat glioblastoma?",
+        "expected_keywords": [
+            "checkpoint",
+            "PD-1",
+            "pembrolizumab",
+            "nivolumab",
+            "blood-brain barrier",
+            "immunotherapy"
+        ],
+        "expected_sources": [
+            "pubmed",
+            "clinicaltrials.gov"
+        ],
+        "literacy_mode": "caregiver"
+    },
+    {
+        "id": "q019",
+        "category": "research",
+        "question": "What is CAR-T cell therapy for GBM?",
+        "expected_keywords": [
+            "CAR-T",
+            "chimeric antigen",
+            "EGFRvIII",
+            "adoptive",
+            "immunotherapy"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "clinician"
+    },
+    {
+        "id": "q020",
+        "category": "treatment",
+        "question": "What is the PCV regimen and when is it used?",
+        "expected_keywords": [
+            "procarbazine",
+            "lomustine",
+            "vincristine",
+            "PCV",
+            "oligodendroglioma",
+            "IDH mutant"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "clinician"
+    },
+    {
+        "id": "q021",
+        "category": "drug",
+        "question": "What are the neurological side effects of radiation therapy for GBM?",
+        "expected_keywords": [
+            "fatigue",
+            "cognitive",
+            "radiation necrosis",
+            "memory",
+            "late effects"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "patient"
+    },
+    {
+        "id": "q022",
+        "category": "research",
+        "question": "What does EGFR amplification mean in glioblastoma?",
+        "expected_keywords": [
+            "EGFR",
+            "amplification",
+            "EGFRvIII",
+            "growth factor receptor",
+            "targeted therapy"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "clinician"
+    },
+    {
+        "id": "q023",
+        "category": "treatment",
+        "question": "How does stereotactic radiosurgery (SRS) differ from standard radiation in GBM?",
+        "expected_keywords": [
+            "stereotactic",
+            "SRS",
+            "Gamma Knife",
+            "CyberKnife",
+            "boost",
+            "fraction"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "caregiver"
+    },
+    {
+        "id": "q024",
+        "category": "research",
+        "question": "What causes glioblastoma and are there risk factors?",
+        "expected_keywords": [
+            "etiology",
+            "risk factors",
+            "ionizing radiation",
+            "genetic",
+            "NF1"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "patient"
+    },
+    {
+        "id": "q025",
+        "category": "drug",
+        "question": "What is the mechanism of action of temozolomide (Temodar)?",
+        "expected_keywords": [
+            "alkylating",
+            "O6-methylguanine",
+            "DNA methylation",
+            "MGMT",
+            "mechanism"
+        ],
+        "expected_sources": [
+            "pubmed",
+            "fda_label"
+        ],
+        "literacy_mode": "clinician"
+    },
+    {
+        "id": "q026",
+        "category": "emotional",
+        "question": "I'm terrified — my dad just got diagnosed with GBM. What do I do?",
+        "expected_keywords": [
+            "support",
+            "not alone",
+            "resources",
+            "National Brain Tumor Society"
+        ],
+        "expected_sources": [],
+        "literacy_mode": "patient"
+    },
+    {
+        "id": "q027",
+        "category": "emotional",
+        "question": "How do I tell my children that their grandfather might not survive his brain tumor?",
+        "expected_keywords": [
+            "children",
+            "support",
+            "age-appropriate",
+            "counselor"
+        ],
+        "expected_sources": [],
+        "literacy_mode": "patient"
+    },
+    {
+        "id": "q028",
+        "category": "treatment",
+        "question": "What is awake craniotomy and why is it performed?",
+        "expected_keywords": [
+            "awake",
+            "craniotomy",
+            "cortical mapping",
+            "eloquent",
+            "language",
+            "motor"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "caregiver"
+    },
+    {
+        "id": "q029",
+        "category": "research",
+        "question": "What are the most promising GBM research directions in 2024?",
+        "expected_keywords": [
+            "immunotherapy",
+            "CAR-T",
+            "vaccine",
+            "oncolytic virus",
+            "clinical trial"
+        ],
+        "expected_sources": [
+            "pubmed",
+            "clinicaltrials.gov"
+        ],
+        "literacy_mode": "clinician"
+    },
+    {
+        "id": "q030",
+        "category": "research",
+        "question": "What is the blood-brain barrier and why does it make GBM treatment hard?",
+        "expected_keywords": [
+            "blood-brain barrier",
+            "BBB",
+            "drug penetration",
+            "tight junctions",
+            "chemotherapy"
+        ],
+        "expected_sources": [
+            "pubmed"
+        ],
+        "literacy_mode": "caregiver"
+    }
+]

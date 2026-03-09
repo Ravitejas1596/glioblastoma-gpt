@@ -1,0 +1,40 @@
+services:
+  # ── FastAPI Backend ──────────────────────────────────────────────────────────
+  api:
+    build: .
+    command: uvicorn gbm_copilot.api.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - gbm_data:/app/data
+    env_file: .env
+    depends_on: []
+    restart: unless-stopped
+
+  # ── Streamlit UI ─────────────────────────────────────────────────────────────
+  ui:
+    build: .
+    command: streamlit run gbm_copilot/ui/app.py --server.port 8501 --server.address 0.0.0.0
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    env_file: .env
+    depends_on:
+      - api
+    restart: unless-stopped
+
+  # ── MCP Tool Server ──────────────────────────────────────────────────────────
+  mcp:
+    build: .
+    command: python -m gbm_copilot.mcp_tools.server
+    ports:
+      - "8001:8001"
+    volumes:
+      - .:/app
+    env_file: .env
+    restart: unless-stopped
+
+volumes:
+  gbm_data:
