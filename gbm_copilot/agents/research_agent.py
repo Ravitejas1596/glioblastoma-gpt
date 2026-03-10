@@ -38,7 +38,30 @@ async def research_agent(state: AgentState) -> dict:
     state_update = {"research_results": chunks}
 
     if not chunks:
-        return {**state_update, "research_answer": ""}
+        # Index is empty — answer directly from LLM training knowledge
+        _client = get_client()
+        _model = get_model()
+        kb_response = await _client.chat.completions.create(
+            model=_model,
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "You are a GBM (glioblastoma) research specialist with expertise in neuro-oncology. "
+                        f"Literacy level: {literacy} — {literacy_desc}. "
+                        "Answer the question from your medical knowledge. Be accurate, specific, and well-structured. "
+                        "Use headers and bullet points. Note that no local research documents were found."
+                    ),
+                },
+                {"role": "user", "content": state["query"]},
+            ],
+            max_tokens=1000,
+            temperature=0.3,
+        )
+        return {
+            **state_update,
+            "research_answer": kb_response.choices[0].message.content.strip(),
+        }
 
     # Build context
     context = "\n\n---\n\n".join([

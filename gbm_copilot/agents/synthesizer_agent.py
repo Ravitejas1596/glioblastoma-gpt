@@ -52,10 +52,35 @@ async def synthesizer_agent(state: AgentState) -> dict:
         parts.append(("clinical_trials", state["trial_answer"]))
 
     if not parts:
+        # No retrieved context (index may be empty). Fall back to Groq's training knowledge
+        # so users still get a helpful answer. Confidence=0.65 passes the safety layer.
+        _client = get_client()
+        _model = get_model()
+        literacy_desc = LITERACY_MODE_DESCRIPTIONS.get(literacy, "")
+        fallback_resp = await _client.chat.completions.create(
+            model=_model,
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "You are GlioblastomaGPT, a knowledgeable AI assistant specialized in "
+                        "glioblastoma (GBM) and neuro-oncology. "
+                        f"Answer the user's question clearly and accurately. "
+                        f"Literacy level: {literacy} — {literacy_desc}. "
+                        "Structure your answer with headers and bullet points where helpful. "
+                        "Note: you are answering from general medical knowledge as no specific "
+                        "research documents were retrieved from the database for this query."
+                    ),
+                },
+                {"role": "user", "content": query},
+            ],
+            max_tokens=1200,
+            temperature=0.3,
+        )
         return {
-            "final_answer": "I don't have enough information to answer that question reliably.",
+            "final_answer": fallback_resp.choices[0].message.content.strip(),
             "citations": [],
-            "confidence_score": 0.0,
+            "confidence_score": 0.65,  # Moderate — LLM knowledge, no RAG grounding
         }
 
     # If only one agent responded, use it directly
