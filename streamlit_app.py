@@ -97,8 +97,13 @@ st.markdown("""
 
 # ── In-process pipeline call ──────────────────────────────────────────────────
 def run_pipeline(query: str, literacy_mode: str, session_id: str, conversation_history: list) -> dict:
+    """
+    Calls the LangGraph pipeline in a fresh thread with its own event loop.
+    This avoids the uvloop/asyncio conflict on Streamlit Cloud (Python 3.14).
+    """
     try:
         from gbm_copilot.agents.graph import run_query
+        import concurrent.futures
 
         async def _run():
             return await run_query(
@@ -108,19 +113,21 @@ def run_pipeline(query: str, literacy_mode: str, session_id: str, conversation_h
                 conversation_history=conversation_history,
             )
 
-        try:
-            loop = asyncio.get_event_loop()
-            if loop.is_running():
-                import concurrent.futures
-                with concurrent.futures.ThreadPoolExecutor(max_workers=1) as pool:
-                    future = pool.submit(asyncio.run, _run())
-                    return future.result(timeout=120)
-            else:
-                return loop.run_until_complete(_run())
-        except RuntimeError:
+        # Always run in a new thread with a fresh event loop.
+        # This is the ONLY safe way on Streamlit Cloud (uvloop, Python 3.14).
+        def _thread_target():
             return asyncio.run(_run())
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as pool:
+            future = pool.submit(_thread_target)
+            return future.result(timeout=120)
+
     except Exception as e:
-        return {"final_answer": f"⚠️ Error: {e}", "error": str(e)}
+        import traceback
+        return {
+            "final_answer": f"⚠️ **Error:** {e}\n\n```\n{traceback.format_exc()[-800:]}\n```",
+            "error": str(e),
+        }
 
 
 # ── Session state ─────────────────────────────────────────────────────────────
