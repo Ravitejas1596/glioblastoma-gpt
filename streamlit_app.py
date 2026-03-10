@@ -137,6 +137,12 @@ if "session_id" not in st.session_state:
     st.session_state.session_id = str(uuid.uuid4())
 if "literacy_mode" not in st.session_state:
     st.session_state.literacy_mode = "patient"
+if "retrieval_mode" not in st.session_state:
+    st.session_state.retrieval_mode = "numpy"
+
+# ── Apply retrieval mode to config (mutate cfg so hybrid_retriever picks it up)
+import gbm_copilot.config as _cfg
+_cfg.RETRIEVAL_MODE = st.session_state.retrieval_mode  # type: ignore
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
@@ -170,14 +176,38 @@ with st.sidebar:
     st.markdown(f"Active: <span class='mode-badge mode-{_chosen}'>{_badge_text}</span>", unsafe_allow_html=True)
 
     st.markdown("---")
-    st.markdown("**🔬 Retrieval Mode**")
-    st.markdown(
-        "<span style='display:inline-block;background:#1e3a8a;border:1px solid #6366f1;"
-        "color:#a5b4fc;padding:3px 10px;border-radius:20px;font-size:0.72rem;font-weight:600;'>"
-        "🅱️ Version B — NumPy Active</span>",
-        unsafe_allow_html=True,
+    st.markdown("**🔬 Retrieval Version**")
+
+    _ver_options = ["numpy", "pinecone"]
+    _ver_labels = {
+        "numpy":    "🅱️ Version B — NumPy (no DB)",
+        "pinecone": "🅰️ Version A — Pinecone",
+    }
+    st.radio(
+        label="retrieval_version",
+        options=_ver_options,
+        format_func=lambda x: _ver_labels[x],
+        key="retrieval_mode",
+        label_visibility="collapsed",
     )
-    st.caption("Version A (Pinecone) requires a pre-built index. NumPy mode is always available.")
+    # Sync to config so hybrid_retriever uses the right backend
+    import gbm_copilot.config as _cfg_sidebar
+    _cfg_sidebar.RETRIEVAL_MODE = st.session_state.retrieval_mode  # type: ignore
+
+    if st.session_state.retrieval_mode == "pinecone":
+        st.markdown(
+            "<span style='display:inline-block;background:#065f46;border:1px solid #10b981;"
+            "color:#6ee7b7;padding:3px 10px;border-radius:20px;font-size:0.72rem;font-weight:600;'>"
+            "🅰️ Version A Active — Pinecone</span>",
+            unsafe_allow_html=True,
+        )
+    else:
+        st.markdown(
+            "<span style='display:inline-block;background:#1e3a8a;border:1px solid #6366f1;"
+            "color:#a5b4fc;padding:3px 10px;border-radius:20px;font-size:0.72rem;font-weight:600;'>"
+            "🅱️ Version B Active — NumPy</span>",
+            unsafe_allow_html=True,
+        )
     st.markdown("---")
 
     st.markdown("### 💬 Try These")
