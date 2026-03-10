@@ -1,72 +1,70 @@
 """
 Centralized LLM Client Factory for GlioblastomaGPT
 ====================================================
-Supports two providers, configured via LLM_PROVIDER env variable:
+Reads API keys DYNAMICALLY on every call (not at import time) so that
+Streamlit Cloud secrets injected into os.environ are always picked up.
 
-  LLM_PROVIDER=groq    → Groq (free tier, llama-3.3-70b-versatile)
+  LLM_PROVIDER=groq    → Groq free tier (llama-3.3-70b-versatile)
   LLM_PROVIDER=openai  → OpenAI GPT-4o (paid)
-
-Both return an AsyncOpenAI-compatible client — zero changes needed
-in agent code, because Groq's Python SDK is 100% OpenAI-compatible.
 """
 from __future__ import annotations
 
 import os
-from dotenv import load_dotenv
 from pathlib import Path
+from dotenv import load_dotenv
 
-# Load .env from project root (works both locally and on Streamlit Cloud)
+# Load .env for local development
 ROOT_DIR = Path(__file__).parent.parent
 load_dotenv(ROOT_DIR / ".env")
 
-# Try loading from Streamlit secrets (for Streamlit Cloud deployment)
-try:
-    import streamlit as st
-    _secrets = st.secrets
-except Exception:
-    _secrets = {}
 
-
-def _get_secret(key: str, default: str = "") -> str:
-    """Get a secret from env, .env, or Streamlit secrets (in that order)."""
+def _get(key: str, default: str = "") -> str:
+    """Read a config value from os.environ first, then st.secrets (Streamlit Cloud)."""
     val = os.environ.get(key, "")
     if val:
         return val
-    if _secrets and hasattr(_secrets, "get"):
-        return _secrets.get(key, default)
-    return default
-
-
-# ── Provider selection ────────────────────────────────────────────────────────
-LLM_PROVIDER: str = _get_secret("LLM_PROVIDER", "groq").lower()
-
-# ── Groq settings ─────────────────────────────────────────────────────────────
-GROQ_API_KEY: str = _get_secret("GROQ_API_KEY", "")
-GROQ_MODEL: str = _get_secret("GROQ_MODEL", "llama-3.3-70b-versatile")
-
-# ── OpenAI settings (fallback) ────────────────────────────────────────────────
-OPENAI_API_KEY: str = _get_secret("OPENAI_API_KEY", "")
-OPENAI_MODEL: str = _get_secret("OPENAI_MODEL", "gpt-4o")
+    # Streamlit Cloud secrets fallback (read every call so late-injection works)
+    try:
+        import streamlit as st
+        val = st.secrets.get(key, default)
+        if val:
+            # Also inject into os.environ so subprocesses / threads see it
+            os.environ[key] = str(val)
+        return str(val)
+    except Exception:
+        return default
 
 
 def get_client():
     """
-    Returns an async LLM client.
-    - Groq client (when LLM_PROVIDER=groq or GROQ_API_KEY is set)
-    - OpenAI client (when LLM_PROVIDER=openai)
-
-    Both clients expose the same .chat.completions.create(...) interface.
+    Return a ready-to-use async LLM client.
+    Keys are read fresh from env/secrets on every call — safe for Streamlit Cloud.
     """
-    if LLM_PROVIDER == "groq" or (GROQ_API_KEY and not OPENAI_API_KEY):
+    provider = _get("LLM_PROVIDER", "groq").lower()
+    groq_key = _get("GROQ_API_KEY", "")
+    openai_key = _get("OPENAI_API_KEY", "")
+
+    if provider == "groq" or (groq_key and not openai_key):
+        if not groq_key:
+            raise ValueError(
+                "GROQ_API_KEY is missing. Add it to Streamlit Cloud Secrets: "
+                'GROQ_API_KEY = "gsk_..."'
+            )
         from groq import AsyncGroq
-        return AsyncGroq(api_key=GROQ_API_KEY)
+        return AsyncGroq(api_key=groq_key)
     else:
+        if not openai_key:
+            raise ValueError("OPENAI_API_KEY is missing.")
         from openai import AsyncOpenAI
-        return AsyncOpenAI(api_key=OPENAI_API_KEY)
+        return AsyncOpenAI(api_key=openai_key)
 
 
 def get_model() -> str:
-    """Returns the model name for the active provider."""
-    if LLM_PROVIDER == "groq" or (GROQ_API_KEY and not OPENAI_API_KEY):
-        return GROQ_MODEL
-    return OPENAI_MODEL
+    """Return the model name for the active provider."""
+    provider = _get("LLM_PROVIDER", "groq").lower()
+    groq_key = _get("GROQ_API_KEY", "")
+    openai_key = _get("OPENAI_API_KEY", "")
+
+    if provider == "groq" or (groq_key and not openai_key):
+        return _get("GROQ_MODEL", "llama-3.3-70b-versatile")
+    return _get("OPENAI_MODEL", "gpt-4o")
