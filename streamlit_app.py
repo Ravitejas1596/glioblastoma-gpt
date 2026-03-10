@@ -131,14 +131,12 @@ def run_pipeline(query: str, literacy_mode: str, session_id: str, conversation_h
 
 
 # ── Session state ─────────────────────────────────────────────────────────────
-for _k, _v in {
-    "messages": [],
-    "session_id": str(uuid.uuid4()),
-    "literacy_mode": "patient",
-    "_prefill": "",
-}.items():
-    if _k not in st.session_state:
-        st.session_state[_k] = _v
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+if "session_id" not in st.session_state:
+    st.session_state.session_id = str(uuid.uuid4())
+if "literacy_mode" not in st.session_state:
+    st.session_state.literacy_mode = "patient"
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
@@ -158,22 +156,28 @@ with st.sidebar:
         "clinician": "⚕️  Clinician — Technical",
     }
 
-    # Use index= driven by session_state so it stays in sync after reruns
-    _chosen = st.radio(
+    # key="literacy_mode" auto-syncs st.session_state.literacy_mode with the radio
+    st.radio(
         label="literacy_mode_select",
         options=_mode_options,
         format_func=lambda x: _mode_labels[x],
-        index=_mode_options.index(st.session_state.literacy_mode),
+        key="literacy_mode",         # ← canonical Streamlit pattern for persistence
         label_visibility="collapsed",
     )
-    # Update state immediately (no on_change needed — value is read directly)
-    st.session_state.literacy_mode = _chosen
 
+    _chosen = st.session_state.literacy_mode
     _badge_text = {"patient": "Patient mode", "caregiver": "Caregiver mode", "clinician": "Clinician mode"}[_chosen]
     st.markdown(f"Active: <span class='mode-badge mode-{_chosen}'>{_badge_text}</span>", unsafe_allow_html=True)
 
     st.markdown("---")
-    st.markdown("<span style='display:inline-block;background:#1e3a8a;border:1px solid #6366f1;color:#a5b4fc;padding:3px 10px;border-radius:20px;font-size:0.72rem;font-weight:600;'>🅱️ Version B — NumPy hybrid RAG</span>", unsafe_allow_html=True)
+    st.markdown("**🔬 Retrieval Mode**")
+    st.markdown(
+        "<span style='display:inline-block;background:#1e3a8a;border:1px solid #6366f1;"
+        "color:#a5b4fc;padding:3px 10px;border-radius:20px;font-size:0.72rem;font-weight:600;'>"
+        "🅱️ Version B — NumPy Active</span>",
+        unsafe_allow_html=True,
+    )
+    st.caption("Version A (Pinecone) requires a pre-built index. NumPy mode is always available.")
     st.markdown("---")
 
     st.markdown("### 💬 Try These")
