@@ -59,13 +59,24 @@ CORS_ORIGINS: list[str] = ["http://localhost:8501", "http://localhost:3000"]
 MCP_PORT: int = int(os.environ.get("MCP_PORT", "8001"))
 
 # ── Data paths ────────────────────────────────────────────────────────────────
-DATA_DIR: Path = ROOT_DIR / "data"
+# On Streamlit Cloud /mount/src/ is read-only — fall back to /tmp which is always writable
+_default_data_dir = ROOT_DIR / "data"
+try:
+    _default_data_dir.mkdir(exist_ok=True)
+    DATA_DIR: Path = _default_data_dir
+except OSError:
+    import tempfile
+    DATA_DIR = Path(tempfile.gettempdir()) / "gbm_copilot_data"
+    DATA_DIR.mkdir(exist_ok=True)
+
 NUMPY_INDEX_PATH: Path = DATA_DIR / "numpy_index"
 BM25_INDEX_PATH: Path = DATA_DIR / "bm25_index.pkl"
 CHUNKS_PATH: Path = DATA_DIR / "chunks.jsonl"
 
-DATA_DIR.mkdir(exist_ok=True)
-NUMPY_INDEX_PATH.mkdir(exist_ok=True)
+try:
+    NUMPY_INDEX_PATH.mkdir(exist_ok=True)
+except OSError:
+    pass
 
 # ── Ontology ──────────────────────────────────────────────────────────────────
 ONTOLOGY_PATH: Path = ROOT_DIR / "gbm_copilot" / "ontology" / "gbm_ontology.json"
