@@ -16,22 +16,48 @@ from gbm_copilot.config import (
 _index = None
 
 
+def _get_key(key: str) -> str:
+    """Read config from os.environ then st.secrets (same as llm_client)."""
+    import os
+    val = os.environ.get(key, "")
+    if val:
+        return val
+    try:
+        import streamlit as st
+        val = str(st.secrets[key])
+        if val:
+            os.environ[key] = val
+        return val
+    except Exception:
+        return ""
+
+
 def _get_index():
     global _index
     if _index is None:
         from pinecone import Pinecone, ServerlessSpec
-        pc = Pinecone(api_key=PINECONE_API_KEY)
+        from gbm_copilot.embeddings.embedder import get_embedding_dim
+
+        api_key = _get_key("PINECONE_API_KEY")
+        index_name = _get_key("PINECONE_INDEX_NAME") or "gbm-copilot"
+        region = _get_key("PINECONE_ENVIRONMENT") or "us-east-1"
+
+        if not api_key:
+            raise ValueError("PINECONE_API_KEY not found. Add it to Streamlit Cloud Secrets.")
+
+        pc = Pinecone(api_key=api_key)
+        dim = get_embedding_dim()  # 384 (sentence-transformers) or 1024 (BGE-M3)
 
         existing = [idx.name for idx in pc.list_indexes()]
-        if PINECONE_INDEX_NAME not in existing:
+        if index_name not in existing:
             pc.create_index(
-                name=PINECONE_INDEX_NAME,
-                dimension=1024,  # BGE-M3
+                name=index_name,
+                dimension=dim,
                 metric="cosine",
-                spec=ServerlessSpec(cloud="aws", region="us-east-1"),
+                spec=ServerlessSpec(cloud="aws", region=region),
             )
 
-        _index = pc.Index(PINECONE_INDEX_NAME)
+        _index = pc.Index(index_name)
     return _index
 
 
