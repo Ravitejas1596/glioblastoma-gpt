@@ -48,13 +48,24 @@ def _get_index():
         pc = Pinecone(api_key=api_key)
         dim = get_embedding_dim()  # 384 (sentence-transformers) or 1024 (BGE-M3)
 
+        # Parse old-format env like "us-east-1-aws" → cloud="aws", region="us-east-1"
+        # New Pinecone SDK expects them separately in ServerlessSpec
+        known_clouds = ["aws", "gcp", "azure"]
+        cloud = "aws"
+        parsed_region = region
+        for c in known_clouds:
+            if region.endswith(f"-{c}"):
+                cloud = c
+                parsed_region = region[: -(len(c) + 1)]
+                break
+
         existing = [idx.name for idx in pc.list_indexes()]
         if index_name not in existing:
             pc.create_index(
                 name=index_name,
                 dimension=dim,
                 metric="cosine",
-                spec=ServerlessSpec(cloud="aws", region=region),
+                spec=ServerlessSpec(cloud=cloud, region=parsed_region),
             )
 
         _index = pc.Index(index_name)
